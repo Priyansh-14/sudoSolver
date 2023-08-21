@@ -27,16 +27,16 @@ async function solveSoduko(){
     for(let row=0;row<gridSize;row++){
         sodukoArray[row] = [];
         for(let col=0;col<gridSize;col++){
-            const cellId = `cell-${row}-${col}`;
-            const cellValue = document.getElementById(cellId).value;
+            const cellId = `#cell-${row}-${col}`;
+            const cellValue = document.querySelector(cellId).value;
             sodukoArray[row][col] = cellValue !== "" ? parseInt(cellValue) : 0;
         }
     }
 
     for(let row=0;row<gridSize;row++){
         for(let col=0;col<gridSize;col++){
-            const cellId = `cell-${row}-${col}`;
-            const cell = document.getElementById(cellId);
+            const cellId = `#cell-${row}-${col}`;
+            const cell = document.querySelector(cellId);
 
             if(sodukoArray[row][col] !== 0){
                 cell.classList.add('user-input');
@@ -47,8 +47,8 @@ async function solveSoduko(){
     if(solveSodukoHelper(sodukoArray)){
         for(let row=0;row<gridSize;row++){
             for(let col=0;col<gridSize;col++){
-                const cellId = `cell-${row}-${col}`;
-                const cell = document.getElementById(cellId);
+                const cellId = `#cell-${row}-${col}`;
+                const cell = document.querySelector(cellId);
 
                 if(!cell.classList.contains('user-input')){
                     cell.value = sodukoArray[row][col];
